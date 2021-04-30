@@ -79,11 +79,61 @@ const longestWord = (s) => {
 // Example string : 'The quick brown fox' 
 // Expected Output : 5
 
+const vowelCounter = s => {
+  let vowels = ['a', 'e', 'i', 'o', 'u'];
+  let ans = 0;
+  for (let i = 0; i < s.length; i++) {
+    if (vowels.includes(s[i])) ans++;
+  }
+  return ans;
+}
+
+// 8. Write a JavaScript function that accepts a number as a parameter and check the number isprime or not. 
+// Note : A prime number (or a prime) is a natural number greater than 1 that has no positivedivisors other than 1 and itself.
+
+const isPrime = (n) => {
+  let limit = Math.sqrt(n);
+  if (n%2 === 0) {
+    return false
+  }
+  for (let i = 3; i <= limit; i+=2) {
+    if (n%i === 0) return false
+  }
+  return true
+}
+
+// 9. Write a JavaScript function which accepts an argument and returns the type. 
+// Note : There are six possible values that typeof returns: 
+// object, boolean, function, number,string, and undefined.
+
+const typeOf = (arg) => {
+  return typeof arg;
+}
+
+// 10. Write a JavaScript function which returns the n rows by n columns identity matrix. 
+
+const identityMatrix = n => {
+  let ans = [];
+  for (let i = 0; i < n; i++) {
+    let row = [];
+    for (let j = 0; j < n; j++) {
+      (j === i) ? row.push(1) : row.push(0)
+    }
+    ans.push(row);
+  }
+
+  return ans
+}
+
 module.exports = {
   reverseNumber,
   isPalindrome,
   allCombination,
   orderString,
   firstLetterUpper,
-  longestWord
+  longestWord,
+  vowelCounter,
+  isPrime,
+  typeOf,
+  identityMatrix
 };
